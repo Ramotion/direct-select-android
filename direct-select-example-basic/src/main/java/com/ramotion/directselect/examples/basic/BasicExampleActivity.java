@@ -11,10 +11,5 @@ public class BasicExampleActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ds_basic_example_activity);
-
-
-        DSListView listview = findViewById(R.id.ds_picker);
-
-        listview.getSelectedItem();
     }
 }
