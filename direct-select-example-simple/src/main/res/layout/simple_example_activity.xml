@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ds="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.ramotion.directselect.examples.simple.SimpleExampleActivity">
+
+    <com.ramotion.directselect.DSListView
+        android:id="@+id/ds_picker"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/picker_list_bg"
+        android:visibility="invisible"
+        ds:cellHeight="50dp"
+        ds:pickerBox="@id/picker_box"
+        ds:selectedIndex="2"
+        ds:selectorAnimations="false"
+        ds:selectorBgDrawable="@drawable/ds_custom_selector_bg" />
+
+    <com.ramotion.directselect.examples.simple.SimpleExamplePickerBox
+        android:id="@+id/picker_box"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="310dp"
+        android:background="@drawable/picker_box_background" />
+
+</FrameLayout>

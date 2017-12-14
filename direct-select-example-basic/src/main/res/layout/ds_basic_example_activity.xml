@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ds="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.ramotion.directselect.examples.basic.BasicExampleActivity">
+
+    <com.ramotion.directselect.DSListView
+        android:id="@+id/ds_picker"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/ds_list_bg"
+        android:visibility="invisible"
+        ds:cellHeight="60dp"
+        ds:dataArray="@array/months"
+        ds:pickerBox="@id/picker_box"
+        ds:selectedIndex="2"
+        ds:selectorAnimations="true"
+        ds:selectorBgColor="@color/ds_list_selector_bg" />
+
+    <com.ramotion.directselect.DSPickerBoxDefault
+        android:id="@+id/picker_box"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="260dp"
+        android:background="@color/ds_picker_box_bg" />
+
+</FrameLayout>

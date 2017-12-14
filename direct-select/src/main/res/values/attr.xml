@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="DSListView">
+        <attr name="dataArray" format="integer" />
+        <attr name="selectedIndex" format="integer" />
+        <attr name="selectorBgColor" format="string" />
+        <attr name="selectorBgDrawable" format="reference" />
+        <attr name="selectorAnimations" format="boolean" />
+        <attr name="pickerBox" format="reference" />
+        <attr name="cellHeight" format="dimension" />
+    </declare-styleable>
+</resources>
