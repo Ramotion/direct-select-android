@@ -2,27 +2,11 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:transformPivotX="0dp"
-    android:transformPivotY="25dp">
+    android:background="@drawable/ds_nba_background_picker_box"
+    android:paddingLeft="15dp"
+    android:paddingRight="15dp">
 
-    <ImageView
-        android:id="@+id/picker_box_img"
-        android:layout_width="45dp"
-        android:layout_height="30dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_centerVertical="true"
-        android:layout_margin="10dp"
-        android:background="@android:color/holo_green_dark"
-        android:scaleType="centerCrop" />
-
-    <TextView
-        android:id="@+id/picker_box_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_toEndOf="@id/picker_box_img"
-        android:layout_toRightOf="@id/picker_box_img" />
+    <include layout="@layout/simple_example_custom_cell" />
 
     <ImageView
         android:id="@+id/picker_box_arrows"
@@ -31,9 +15,11 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
-        android:layout_margin="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:alpha="0.25"
+        android:contentDescription="@string/picker_box_arrows_icon"
         android:scaleType="fitCenter"
-        android:alpha="0.4"
-        android:src="@drawable/ds_scroll_arrows" />
+        android:src="@drawable/ds_picker_box_arrows" />
 
 </RelativeLayout>

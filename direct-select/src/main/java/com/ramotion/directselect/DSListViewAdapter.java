@@ -61,7 +61,7 @@ public class DSListViewAdapter extends ArrayAdapter<String> {
             assert vi != null;
             convertView = vi.inflate(R.layout.ds_default_list_item, null);
             holder = new ViewHolder();
-            holder.text = convertView.findViewById(R.id.list_item_text);
+            holder.text = convertView.findViewById(R.id.ds_default_cell_text);
             convertView.setTag(holder);
         } else {
             holder = (ViewHolder) convertView.getTag();
@@ -70,15 +70,8 @@ public class DSListViewAdapter extends ArrayAdapter<String> {
         if (null != holder) {
             holder.text.setText("" + items.get(position));
 
-            convertView.setMinimumHeight(cellHeight);
+            convertView.findViewById(R.id.ds_default_cell_root).setMinimumHeight(cellHeight);
 
-//            // Default adapter works with picker configured from XML with default cell layout, so we need to set a proper cell height here.
-//            if (holder.text.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
-//                ViewGroup.MarginLayoutParams p = (ViewGroup.MarginLayoutParams) holder.text.getLayoutParams();
-//                p.height = cellHeight;
-//                holder.text.setLayoutParams(p);
-//                holder.text.requestLayout();
-//            }
         }
         return convertView;
     }

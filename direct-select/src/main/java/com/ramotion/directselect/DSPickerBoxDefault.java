@@ -6,11 +6,13 @@ import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.TextView;
 
 public class DSPickerBoxDefault extends DSPickerBox<String> {
 
     private TextView textView;
+    private ViewGroup animatedPart;
 
     public DSPickerBoxDefault(@NonNull Context context) {
         super(context);
@@ -31,7 +33,9 @@ public class DSPickerBoxDefault extends DSPickerBox<String> {
     @Override
     protected void onFinishInflate() {
         super.onFinishInflate();
-        this.textView = findViewById(R.id.picker_box_text);
+        this.textView = findViewById(R.id.ds_default_cell_text);
+        this.animatedPart = findViewById(R.id.ds_default_cell_root);
+        this.animatedPart.setMinimumHeight(this.getHeight());
     }
 
     @Override
@@ -41,7 +45,7 @@ public class DSPickerBoxDefault extends DSPickerBox<String> {
 
     @Override
     public View getAnimatedPart() {
-        return this.textView;
+        return this.animatedPart;
     }
 
 }

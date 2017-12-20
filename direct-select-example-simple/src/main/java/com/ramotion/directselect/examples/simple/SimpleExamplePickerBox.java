@@ -16,6 +16,7 @@ public class SimpleExamplePickerBox extends DSPickerBox<SimpleExampleDataPOJO> {
 
     private TextView title;
     private ImageView icon;
+    private View animationPart;
 
     public SimpleExamplePickerBox(@NonNull Context context) {
         super(context);
@@ -36,8 +37,9 @@ public class SimpleExamplePickerBox extends DSPickerBox<SimpleExampleDataPOJO> {
     @Override
     protected void onFinishInflate() {
         super.onFinishInflate();
-        this.title = findViewById(R.id.picker_box_text);
-        this.icon = findViewById(R.id.picker_box_img);
+        this.title = findViewById(R.id.custom_cell_text);
+        this.icon = findViewById(R.id.custom_cell_image);
+        this.animationPart = findViewById(R.id.custom_cell_root);
     }
 
     @Override
@@ -48,6 +50,6 @@ public class SimpleExamplePickerBox extends DSPickerBox<SimpleExampleDataPOJO> {
 
     @Override
     public View getAnimatedPart() {
-        return this;
+        return this.animationPart;
     }
 }

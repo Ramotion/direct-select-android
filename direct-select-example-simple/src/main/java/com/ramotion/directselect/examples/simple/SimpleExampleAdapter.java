@@ -47,10 +47,10 @@ public class SimpleExampleAdapter extends ArrayAdapter<SimpleExampleDataPOJO> {
         if (null == convertView) {
             LayoutInflater vi = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             assert vi != null;
-            convertView = vi.inflate(R.layout.simple_example_list_item, null);
+            convertView = vi.inflate(R.layout.simple_example_list_item, parent, false);
             holder = new SimpleExampleAdapter.ViewHolder();
-            holder.text = convertView.findViewById(R.id.list_item_text);
-            holder.icon = convertView.findViewById(R.id.list_item_img);
+            holder.text = convertView.findViewById(R.id.custom_cell_text);
+            holder.icon = convertView.findViewById(R.id.custom_cell_image);
             convertView.setTag(holder);
         } else {
             holder = (SimpleExampleAdapter.ViewHolder) convertView.getTag();

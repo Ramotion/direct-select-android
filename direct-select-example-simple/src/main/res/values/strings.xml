@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">direct-select-simple-example</string>
+    <string name="app_name">DS Simple Example</string>
+    <string name="picker_box_arrows_icon">picker box arrows icon</string>
+    <string name="cell_image">cell image</string>
 </resources>

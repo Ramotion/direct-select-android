@@ -6,7 +6,7 @@
 
 
     <color name="selector_border">#dedede</color>
-    <color name="picker_box_border">#878787</color>
+    <color name="picker_box_border">#9f9f9f</color>
     <color name="picker_box_bg">#ffffff</color>
     <color name="picker_list_bg">#ffffff</color>
     <color name="picker_list_text">#232323</color>

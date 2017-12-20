@@ -1,30 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:minHeight="50dp"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:clipChildren="false"
+    android:clipToPadding="false"
     android:paddingLeft="15dp"
     android:paddingRight="15dp"
-    android:transformPivotX="0dp"
-    android:transformPivotY="25dp">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/list_item_img"
-        android:layout_width="45dp"
-        android:layout_height="30dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_centerVertical="true"
-        android:layout_margin="10dp"
-        android:scaleType="centerCrop" />
+    <include layout="@layout/simple_example_custom_cell" />
 
-    <TextView
-        android:id="@+id/list_item_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_toEndOf="@id/list_item_img"
-        android:layout_toRightOf="@id/list_item_img"
-        android:textColor="@color/picker_list_text" />
-
-</RelativeLayout>
+</FrameLayout>

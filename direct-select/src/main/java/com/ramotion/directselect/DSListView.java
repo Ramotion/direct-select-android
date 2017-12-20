@@ -20,6 +20,7 @@ import android.view.animation.DecelerateInterpolator;
 import android.view.animation.ScaleAnimation;
 import android.widget.AbsListView;
 import android.widget.ArrayAdapter;
+import android.widget.FrameLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.Space;
@@ -59,6 +60,7 @@ public class DSListView<T> extends RelativeLayout implements AbsListView.OnScrol
     private int selectorTopMargin = 0;
     private int subScrollDuration = 100;
     private int topMarginCompensation = 0;
+    private boolean selectorAnimationCenterPivot = false;
 
     // Attached view to display selected value and trigger show/hide animations of DSListView
     private DSPickerBox<T> pickerBox;
@@ -66,8 +68,6 @@ public class DSListView<T> extends RelativeLayout implements AbsListView.OnScrol
 
     private int chooserBgColor = Color.parseColor("#116b2b66");
     private int chooserBgDrawable;
-
-    private boolean prevFling;
 
     public DSListView(Context context) {
         super(context);
@@ -89,12 +89,16 @@ public class DSListView<T> extends RelativeLayout implements AbsListView.OnScrol
                 this.selectorAnimationsEnabled = styledAttrs.getBoolean(attr, true);
             } else if (attr == R.styleable.DSListView_selectedIndex) {
                 this.selectedItem = styledAttrs.getInt(attr, 0);
-            } else if (attr == R.styleable.DSListView_cellHeight) {
-                this.cellHeight = styledAttrs.getDimensionPixelSize(attr, 100);
+//            } else if (attr == R.styleable.DSListView_cellHeight) {
+//                this.cellHeight = styledAttrs.getDimensionPixelSize(attr, 100);
             } else if (attr == R.styleable.DSListView_selectorBgDrawable) {
                 this.chooserBgDrawable = styledAttrs.getResourceId(attr, 0);
             } else if (attr == R.styleable.DSListView_pickerBox) {
                 this.pickerBoxResId = styledAttrs.getResourceId(attr, 0);
+            } else if (attr == R.styleable.DSListView_selectorAnimationScaleFactor) {
+                this.scaleFactorDelta = styledAttrs.getFloat(attr, 1.3f) - 1f;
+            } else if (attr == R.styleable.DSListView_selectorAnimationCenterPivot) {
+                this.selectorAnimationCenterPivot = styledAttrs.getBoolean(attr, false);
             }
         }
         styledAttrs.recycle();
@@ -132,7 +136,7 @@ public class DSListView<T> extends RelativeLayout implements AbsListView.OnScrol
         }
     }
 
-    public void setCellHeight(@Dimension int cellHeight) {
+    private void setCellHeight(@Dimension int cellHeight) {
         this.cellHeight = cellHeight;
         if (this.adapter instanceof DSListViewAdapter) {
             ((DSListViewAdapter) this.adapter).setCellHeight(cellHeight);
@@ -167,6 +171,7 @@ public class DSListView<T> extends RelativeLayout implements AbsListView.OnScrol
 
         if (null != this.pickerBox) {
             this.pickerBox.getLocationInWindow(selectboxLocation);
+            this.setCellHeight(this.pickerBox.getHeight());
         }
 
         // Calculate positions of selector and self position
@@ -253,7 +258,7 @@ public class DSListView<T> extends RelativeLayout implements AbsListView.OnScrol
         // Scale picker box text animation if animations enabled
         if (selectorAnimationsEnabled && null != this.pickerBox) {
             ScaleAnimation scaleAnimation = new ScaleAnimation(1f + scaleFactorDelta, 1f, 1f + scaleFactorDelta, 1f,
-                    Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
+                    Animation.RELATIVE_TO_SELF, selectorAnimationCenterPivot ? 0.5f : 0f, Animation.RELATIVE_TO_SELF, 0.5f);
             scaleAnimation.setInterpolator(new DecelerateInterpolator());
             scaleAnimation.setStartOffset(100 + subScrollDuration);
             scaleAnimation.setDuration(100);
@@ -265,7 +270,6 @@ public class DSListView<T> extends RelativeLayout implements AbsListView.OnScrol
     private void showListView() {
         if (animationInProgress) return;
         listView.setEnabled(true);
-
         animationInProgress = true;
 
         this.setVisibility(View.VISIBLE);
@@ -275,7 +279,7 @@ public class DSListView<T> extends RelativeLayout implements AbsListView.OnScrol
         // Scale picker box if animations enabled
         if (selectorAnimationsEnabled && null != this.pickerBox) {
             ScaleAnimation scaleAnimation = new ScaleAnimation(1f, 1f + scaleFactorDelta, 1f, 1f + scaleFactorDelta,
-                    Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
+                    Animation.RELATIVE_TO_SELF, selectorAnimationCenterPivot ? 0.5f : 0f, Animation.RELATIVE_TO_SELF, 0.5f);
             scaleAnimation.setInterpolator(new AccelerateInterpolator());
             scaleAnimation.setDuration(100);
             scaleAnimation.setFillAfter(true);
@@ -356,25 +360,12 @@ public class DSListView<T> extends RelativeLayout implements AbsListView.OnScrol
     public void onScrollStateChanged(AbsListView absListView, final int scrollState) {
         this.scrollInProgress = true;
 
-//        // If it's fling -
-//        if (scrollState == SCROLL_STATE_FLING) {
-////            this.readyToHide = false;
-//            this.prevFling = true;
-//        }
-//
-//        // If it's touch
-//        if (scrollState == SCROLL_STATE_TOUCH_SCROLL) {
-//            this.readyToHide = true;
-//            this.prevFling = false;
-//        }
-
         // If scroll not stopped - clear selector animations(hide/show scale) and return;
         if (scrollState != SCROLL_STATE_IDLE) {
             if (null != this.pickerBox)
                 DSListView.this.pickerBox.clearAnimation();
             return;
         }
-
 
         // So, scroll is stopped - we need to detect position and make subscroll to selected element
         this.scrollInProgress = false;
@@ -411,23 +402,34 @@ public class DSListView<T> extends RelativeLayout implements AbsListView.OnScrol
         int applyingRangeY = cellHeight;
 
         for (int i = 0; i < listView.getChildCount(); i++) {
+
             // Exclude elements that does not need to edit
-            View itemRoot = listView.getChildAt(i);
+            if (!(listView.getChildAt(i) instanceof FrameLayout))
+                continue;
+
+            ViewGroup itemRoot = (ViewGroup) listView.getChildAt(i);
+
             float deviation = 2f;
             if (itemRoot.getTop() > selectorPosY + applyingRangeY * deviation || itemRoot.getTop() < selectorPosY - applyingRangeY * deviation)
                 continue;
 
+            View cellContent = itemRoot.getChildAt(0);
+
             // Edit elements regarding to their position from selector
             float dy = Math.abs(itemRoot.getTop() - selectorPosY);
+            if (!selectorAnimationCenterPivot) {
+                cellContent.setPivotX(0);
+                cellContent.setPivotY(itemRoot.getHeight() / 2);
+            }
             // Scale
             if (dy <= applyingRangeY) {
                 float k1 = 1 - (dy / applyingRangeY);
                 float scale = 1 + scaleFactorDelta * k1;
-                itemRoot.setScaleX(scale);
-                itemRoot.setScaleY(scale);
+                cellContent.setScaleX(scale);
+                cellContent.setScaleY(scale);
             } else {
-                itemRoot.setScaleX(1f);
-                itemRoot.setScaleY(1f);
+                cellContent.setScaleX(1f);
+                cellContent.setScaleY(1f);
             }
         }
     }

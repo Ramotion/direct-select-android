@@ -6,7 +6,9 @@
         <attr name="selectorBgColor" format="string" />
         <attr name="selectorBgDrawable" format="reference" />
         <attr name="selectorAnimations" format="boolean" />
+        <attr name="selectorAnimationScaleFactor" format="float" />
+        <attr name="selectorAnimationCenterPivot" format="boolean" />
         <attr name="pickerBox" format="reference" />
-        <attr name="cellHeight" format="dimension" />
+        <!--<attr name="cellHeight" format="dimension" />-->
     </declare-styleable>
 </resources>

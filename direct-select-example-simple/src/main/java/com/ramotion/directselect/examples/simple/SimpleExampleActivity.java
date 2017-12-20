@@ -22,15 +22,9 @@ public class SimpleExampleActivity extends AppCompatActivity {
 
         ArrayAdapter<SimpleExampleDataPOJO> adapter = new SimpleExampleAdapter(getApplicationContext(), R.layout.simple_example_list_item, exampleDataset);
 
-        DSListView<SimpleExampleDataPOJO> pickerView = findViewById(R.id.ds_picker);
+        DSListView<SimpleExampleDataPOJO> pickerView = findViewById(R.id.ds_nba_picker);
 
         pickerView.setAdapter(adapter);
-
-//        pickerView.attachTriggerView(view);
-//        pickerView.attachTextView(textView);
-//        pickerView.setSelectorAnimationsEnabled(true);
-//        pickerView.setSelectedIndex(2);
-//        pickerView.setSelectorBgDrawable(R.drawable.custom_selector_bg);
 
     }
 
