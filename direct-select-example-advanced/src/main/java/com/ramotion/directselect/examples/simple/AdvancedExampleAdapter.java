@@ -14,11 +14,11 @@ import com.ramotion.directselect.R;
 
 import java.util.List;
 
-public class SimpleExampleAdapter extends ArrayAdapter<SimpleExampleDataPOJO> {
-    private List<SimpleExampleDataPOJO> items;
+public class AdvancedExampleAdapter extends ArrayAdapter<AdvancedExampleDataPOJO> {
+    private List<AdvancedExampleDataPOJO> items;
     private Context context;
 
-    public SimpleExampleAdapter(@NonNull Context context, int resource, @NonNull List<SimpleExampleDataPOJO> objects) {
+    public AdvancedExampleAdapter(@NonNull Context context, int resource, @NonNull List<AdvancedExampleDataPOJO> objects) {
         super(context, resource, objects);
         this.items = objects;
         this.context = context;
@@ -42,18 +42,18 @@ public class SimpleExampleAdapter extends ArrayAdapter<SimpleExampleDataPOJO> {
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-        SimpleExampleAdapter.ViewHolder holder;
+        AdvancedExampleAdapter.ViewHolder holder;
 
         if (null == convertView) {
             LayoutInflater vi = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             assert vi != null;
-            convertView = vi.inflate(R.layout.simple_example_list_item, parent, false);
-            holder = new SimpleExampleAdapter.ViewHolder();
+            convertView = vi.inflate(R.layout.advanced_example_list_item, parent, false);
+            holder = new AdvancedExampleAdapter.ViewHolder();
             holder.text = convertView.findViewById(R.id.custom_cell_text);
             holder.icon = convertView.findViewById(R.id.custom_cell_image);
             convertView.setTag(holder);
         } else {
-            holder = (SimpleExampleAdapter.ViewHolder) convertView.getTag();
+            holder = (AdvancedExampleAdapter.ViewHolder) convertView.getTag();
         }
 
         if (null != holder) {

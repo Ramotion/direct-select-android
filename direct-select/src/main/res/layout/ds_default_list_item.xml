@@ -3,10 +3,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:clipChildren="false"
-    android:clipToPadding="false"
-    android:paddingLeft="15dp"
-    android:paddingRight="15dp">
+    android:clipToPadding="false">
 
-    <include layout="@layout/ds_default_cell" />
+    <include
+        android:layout_gravity="center_vertical"
+        layout="@layout/ds_default_cell"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content" />
 
 </FrameLayout>

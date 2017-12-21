@@ -10,19 +10,19 @@ import com.ramotion.directselect.R;
 
 import java.util.List;
 
-public class SimpleExampleActivity extends AppCompatActivity {
+public class AdvancedExampleActivity extends AppCompatActivity {
 
     @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.simple_example_activity);
+        setContentView(R.layout.advanced_example_activity);
 
-        List<SimpleExampleDataPOJO> exampleDataset = SimpleExampleDataPOJO.getExampleDataset();
+        List<AdvancedExampleDataPOJO> exampleDataset = AdvancedExampleDataPOJO.getExampleDataset();
 
-        ArrayAdapter<SimpleExampleDataPOJO> adapter = new SimpleExampleAdapter(getApplicationContext(), R.layout.simple_example_list_item, exampleDataset);
+        ArrayAdapter<AdvancedExampleDataPOJO> adapter = new AdvancedExampleAdapter(getApplicationContext(), R.layout.advanced_example_list_item, exampleDataset);
 
-        DSListView<SimpleExampleDataPOJO> pickerView = findViewById(R.id.ds_nba_picker);
+        DSListView<AdvancedExampleDataPOJO> pickerView = findViewById(R.id.ds_nba_picker);
 
         pickerView.setAdapter(adapter);
 

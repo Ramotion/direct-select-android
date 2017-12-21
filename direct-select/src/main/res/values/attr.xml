@@ -1,14 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <declare-styleable name="DSListView">
-        <attr name="dataArray" format="integer" />
-        <attr name="selectedIndex" format="integer" />
-        <attr name="selectorBgColor" format="string" />
-        <attr name="selectorBgDrawable" format="reference" />
-        <attr name="selectorAnimations" format="boolean" />
-        <attr name="selectorAnimationScaleFactor" format="float" />
-        <attr name="selectorAnimationCenterPivot" format="boolean" />
-        <attr name="pickerBox" format="reference" />
-        <!--<attr name="cellHeight" format="dimension" />-->
+        <attr name="picker_box_view" format="reference" />
+
+        <attr name="data_array" format="integer" />
+        <attr name="selected_index" format="integer" />
+
+        <attr name="selector_bg_color" format="string" />
+        <attr name="selector_bg_drawable" format="reference" />
+
+        <attr name="scale_animations" format="boolean" />
+        <attr name="scale_animations_factor" format="float" />
+        <attr name="scale_animations_pivot_center" format="boolean" />
+
+        <!--<attr name="cell_height" format="dimension" />-->
+        <attr name="cell_font_size" format="dimension" />
     </declare-styleable>
 </resources>

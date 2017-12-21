@@ -12,18 +12,18 @@ import android.widget.TextView;
 import com.ramotion.directselect.DSPickerBox;
 import com.ramotion.directselect.R;
 
-public class SimpleExamplePickerBox extends DSPickerBox<SimpleExampleDataPOJO> {
+public class AdvancedExamplePickerBox extends DSPickerBox<AdvancedExampleDataPOJO> {
 
     private TextView title;
     private ImageView icon;
     private View animationPart;
 
-    public SimpleExamplePickerBox(@NonNull Context context) {
+    public AdvancedExamplePickerBox(@NonNull Context context) {
         super(context);
         init(context, null);
     }
 
-    public SimpleExamplePickerBox(@NonNull Context context, @Nullable AttributeSet attrs) {
+    public AdvancedExamplePickerBox(@NonNull Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         init(context, attrs);
     }
@@ -31,7 +31,7 @@ public class SimpleExamplePickerBox extends DSPickerBox<SimpleExampleDataPOJO> {
     private void init(@NonNull Context context, AttributeSet attrs) {
         LayoutInflater mInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         assert mInflater != null;
-        mInflater.inflate(R.layout.simple_example_picker_box, this, true);
+        mInflater.inflate(R.layout.advanced_example_picker_box, this, true);
     }
 
     @Override
@@ -43,7 +43,7 @@ public class SimpleExamplePickerBox extends DSPickerBox<SimpleExampleDataPOJO> {
     }
 
     @Override
-    public void onSelect(SimpleExampleDataPOJO selectedItem, int selectedIndex) {
+    public void onSelect(AdvancedExampleDataPOJO selectedItem, int selectedIndex) {
         this.title.setText(selectedItem.getTitle());
         this.icon.setImageResource(selectedItem.getIcon());
     }

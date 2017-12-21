@@ -12,18 +12,22 @@
         android:layout_height="match_parent"
         android:background="@color/ds_list_bg"
         android:visibility="invisible"
-        ds:dataArray="@array/months"
-        ds:pickerBox="@id/picker_box"
-        ds:selectedIndex="2"
-        ds:selectorAnimationCenterPivot="true"
-        ds:selectorAnimations="true"
-        ds:selectorBgColor="@color/ds_list_selector_bg" />
+        ds:data_array="@array/months"
+        ds:picker_box_view="@id/picker_box"
+        ds:scale_animations="true"
+        ds:scale_animations_factor="1.5"
+        ds:scale_animations_pivot_center="true"
+        ds:selected_index="2"
+        ds:selector_bg_color="@color/ds_list_selector_bg" />
 
     <com.ramotion.directselect.DSPickerBoxDefault
         android:id="@+id/picker_box"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_marginTop="260dp"
+        android:clipToPadding="false"
+        android:clipChildren="false"
+        android:paddingLeft="20dp"
         android:background="@color/ds_picker_box_bg" />
 
 </FrameLayout>

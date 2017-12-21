@@ -6,7 +6,7 @@
     android:paddingLeft="15dp"
     android:paddingRight="15dp">
 
-    <include layout="@layout/simple_example_custom_cell" />
+    <include layout="@layout/advanced_example_custom_cell" />
 
     <ImageView
         android:id="@+id/picker_box_arrows"

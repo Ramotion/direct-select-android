@@ -12,7 +12,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_centerVertical="true"
-        android:layout_margin="10dp"
+        android:layout_margin="8dp"
         android:contentDescription="@string/cell_image"
         android:scaleType="centerCrop" />
 

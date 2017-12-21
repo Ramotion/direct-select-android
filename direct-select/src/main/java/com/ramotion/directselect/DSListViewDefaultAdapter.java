@@ -14,20 +14,33 @@ import java.util.ArrayList;
 /**
  * Default implementation of ArrayAdapter for DSPickerView
  */
-public class DSListViewAdapter extends ArrayAdapter<String> {
+public class DSListViewDefaultAdapter extends ArrayAdapter<String> {
 
     private ArrayList<String> items;
     private Context context;
     private Integer cellHeight;
+    private Integer leftPadding;
 
-    DSListViewAdapter(Context context, int textViewResourceId, ArrayList<String> stringItems, Integer cellHeight) {
+    DSListViewDefaultAdapter(Context context, int textViewResourceId, ArrayList<String> stringItems, Integer cellHeight) {
         super(context, textViewResourceId, stringItems);
         this.items = stringItems;
         this.context = context;
         this.cellHeight = cellHeight;
     }
 
-    public void setCellHeight(Integer cellHeight) {
+    DSListViewDefaultAdapter(Context context, int textViewResourceId, ArrayList<String> stringItems, Integer cellHeight, Integer leftPadding) {
+        super(context, textViewResourceId, stringItems);
+        this.items = stringItems;
+        this.context = context;
+        this.cellHeight = cellHeight;
+        this.leftPadding = leftPadding;
+    }
+
+    void setLeftPadding(Integer leftPadding) {
+        this.leftPadding = leftPadding;
+    }
+
+    void setCellHeight(Integer cellHeight) {
         this.cellHeight = cellHeight;
     }
 
@@ -69,9 +82,9 @@ public class DSListViewAdapter extends ArrayAdapter<String> {
 
         if (null != holder) {
             holder.text.setText("" + items.get(position));
-
-            convertView.findViewById(R.id.ds_default_cell_root).setMinimumHeight(cellHeight);
-
+            convertView.setMinimumHeight(cellHeight);
+            convertView.setPadding(leftPadding,0,0,0);
+//            convertView.findViewById(R.id.ds_default_cell_root).requestLayout();
         }
         return convertView;
     }

@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Color;
+import android.os.Build;
 import android.os.Handler;
 import android.support.annotation.ColorInt;
 import android.support.annotation.Dimension;
@@ -31,8 +32,10 @@ import java.util.Arrays;
 /**
  * Represents a popup view with list of available options to choose from and chooser view
  * at fixed position from top to indicate a selected option.
+ *
+ * TODO: Refactor default configuration code and add possibility to change text size
  */
-@SuppressWarnings({"unused", "UnusedReturnValue"})
+@SuppressWarnings({"unused", "UnusedReturnValue", "unchecked"})
 public class DSListView<T> extends RelativeLayout implements AbsListView.OnScrollListener {
 
     private ArrayAdapter<T> adapter = null;
@@ -66,6 +69,9 @@ public class DSListView<T> extends RelativeLayout implements AbsListView.OnScrol
     private DSPickerBox<T> pickerBox;
     private int pickerBoxResId;
 
+    private int defaultPickerBoxLeftPadding;
+//    private DSDefaultCellSettings defaultCellSettings = new DSDefaultCellSettings(0, 30, 30, 30, 30);
+
     private int chooserBgColor = Color.parseColor("#116b2b66");
     private int chooserBgDrawable;
 
@@ -80,24 +86,22 @@ public class DSListView<T> extends RelativeLayout implements AbsListView.OnScrol
         final int count = styledAttrs.getIndexCount();
         for (int i = 0; i < count; ++i) {
             int attr = styledAttrs.getIndex(i);
-            if (attr == R.styleable.DSListView_selectorBgColor) {
+            if (attr == R.styleable.DSListView_selector_bg_color) {
                 this.chooserBgColor = Color.parseColor(styledAttrs.getString(attr));
-            } else if (attr == R.styleable.DSListView_dataArray) {
+            } else if (attr == R.styleable.DSListView_data_array) {
                 String[] arr = getResources().getStringArray(styledAttrs.getResourceId(attr, 0));
                 this.dataFromAttributes = new ArrayList<>(Arrays.asList(arr));
-            } else if (attr == R.styleable.DSListView_selectorAnimations) {
+            } else if (attr == R.styleable.DSListView_scale_animations) {
                 this.selectorAnimationsEnabled = styledAttrs.getBoolean(attr, true);
-            } else if (attr == R.styleable.DSListView_selectedIndex) {
+            } else if (attr == R.styleable.DSListView_selected_index) {
                 this.selectedItem = styledAttrs.getInt(attr, 0);
-//            } else if (attr == R.styleable.DSListView_cellHeight) {
-//                this.cellHeight = styledAttrs.getDimensionPixelSize(attr, 100);
-            } else if (attr == R.styleable.DSListView_selectorBgDrawable) {
+            } else if (attr == R.styleable.DSListView_selector_bg_drawable) {
                 this.chooserBgDrawable = styledAttrs.getResourceId(attr, 0);
-            } else if (attr == R.styleable.DSListView_pickerBox) {
+            } else if (attr == R.styleable.DSListView_picker_box_view) {
                 this.pickerBoxResId = styledAttrs.getResourceId(attr, 0);
-            } else if (attr == R.styleable.DSListView_selectorAnimationScaleFactor) {
+            } else if (attr == R.styleable.DSListView_scale_animations_factor) {
                 this.scaleFactorDelta = styledAttrs.getFloat(attr, 1.3f) - 1f;
-            } else if (attr == R.styleable.DSListView_selectorAnimationCenterPivot) {
+            } else if (attr == R.styleable.DSListView_scale_animations_pivot_center) {
                 this.selectorAnimationCenterPivot = styledAttrs.getBoolean(attr, false);
             }
         }
@@ -126,22 +130,32 @@ public class DSListView<T> extends RelativeLayout implements AbsListView.OnScrol
 
         // If string data array provided from xml - use it with default string array adapter
         if (null != dataFromAttributes)
-            setAdapter((ArrayAdapter<T>) new DSListViewAdapter(context, R.layout.ds_default_list_item, dataFromAttributes, cellHeight));
+            setAdapter((ArrayAdapter<T>) new DSListViewDefaultAdapter(context, R.layout.ds_default_list_item,
+                    dataFromAttributes, cellHeight));
     }
 
     public void setAdapter(ArrayAdapter<T> adapter) {
         this.adapter = adapter;
-        if (this.adapter instanceof DSListViewAdapter) {
-            ((DSListViewAdapter) this.adapter).setCellHeight(cellHeight);
+        // If default adapter set - use mechanisms to do default_cell configuration
+        if (this.adapter instanceof DSListViewDefaultAdapter) {
+            ((DSListViewDefaultAdapter) this.adapter).setCellHeight(cellHeight);
+            ((DSListViewDefaultAdapter) this.adapter).setLeftPadding(defaultPickerBoxLeftPadding);
         }
     }
 
-    private void setCellHeight(@Dimension int cellHeight) {
-        this.cellHeight = cellHeight;
-        if (this.adapter instanceof DSListViewAdapter) {
-            ((DSListViewAdapter) this.adapter).setCellHeight(cellHeight);
-        }
-    }
+//    private void setCellHeight(@Dimension int cellHeight) {
+//        this.cellHeight = cellHeight;
+//        if (this.adapter instanceof DSListViewDefaultAdapter) {
+//            ((DSListViewDefaultAdapter) this.adapter).setCellHeight(cellHeight);
+//        }
+//    }
+
+//    private void setCellSettings(@Dimension DSDefaultCellSettings cellSettings) {
+//        this.defaultCellSettings = cellSettings;
+//        if (this.adapter instanceof DSListViewDefaultAdapter) {
+//            ((DSListViewDefaultAdapter) this.adapter).setDefaultCellSettings(defaultCellSettings);
+//        }
+//    }
 
     public void setSelectorBgColor(@ColorInt int chooserBgColor) {
         this.chooserBgColor = chooserBgColor;
@@ -171,8 +185,11 @@ public class DSListView<T> extends RelativeLayout implements AbsListView.OnScrol
 
         if (null != this.pickerBox) {
             this.pickerBox.getLocationInWindow(selectboxLocation);
-            this.setCellHeight(this.pickerBox.getHeight());
+            this.cellHeight = this.pickerBox.getHeight();
         }
+
+        if (null!=this.adapter && this.adapter instanceof DSListViewDefaultAdapter)
+            ((DSListViewDefaultAdapter) this.adapter).setCellHeight(cellHeight);
 
         // Calculate positions of selector and self position
         int[] selfLocation = new int[2];
@@ -324,6 +341,14 @@ public class DSListView<T> extends RelativeLayout implements AbsListView.OnScrol
                 return true;
             }
         });
+
+
+        if (this.pickerBox instanceof DSPickerBoxDefault) {
+            defaultPickerBoxLeftPadding = this.pickerBox.getPaddingLeft();
+            if (this.adapter!=null && this.adapter instanceof DSListViewDefaultAdapter)
+                ((DSListViewDefaultAdapter)this.adapter).setLeftPadding(defaultPickerBoxLeftPadding);
+        }
+
     }
 
     public Integer getSelectedIndex() {
@@ -421,16 +446,23 @@ public class DSListView<T> extends RelativeLayout implements AbsListView.OnScrol
                 cellContent.setPivotX(0);
                 cellContent.setPivotY(itemRoot.getHeight() / 2);
             }
-            // Scale
+            // Scale and "3d effect" for big scale factors on LOLLIPOP AND GREATER
             if (dy <= applyingRangeY) {
                 float k1 = 1 - (dy / applyingRangeY);
                 float scale = 1 + scaleFactorDelta * k1;
                 cellContent.setScaleX(scale);
                 cellContent.setScaleY(scale);
+
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
+                    itemRoot.setZ((dy <= applyingRangeY / 2) ? 2 : 1);
+
             } else {
                 cellContent.setScaleX(1f);
                 cellContent.setScaleY(1f);
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
+                    itemRoot.setZ(0);
             }
+
         }
     }
 

@@ -1,1 +1,1 @@
-include ':direct-select-example-simple', ':direct-select', ':direct-select-example-basic'
+include ':direct-select-example-advanced', ':direct-select', ':direct-select-example-basic'

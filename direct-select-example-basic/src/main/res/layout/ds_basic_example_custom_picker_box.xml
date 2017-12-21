@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:clipToPadding="false">
+    android:background="@drawable/ds_basic_example_custom_picker_box_bg">
 
     <include layout="@layout/ds_default_cell" />
 
