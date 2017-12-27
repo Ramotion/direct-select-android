@@ -14,34 +14,34 @@ import java.util.ArrayList;
 /**
  * Default implementation of ArrayAdapter for DSPickerView
  */
-public class DSListViewDefaultAdapter extends ArrayAdapter<String> {
+public class DSDefaultAdapter extends ArrayAdapter<String> {
 
     private ArrayList<String> items;
     private Context context;
-    private Integer cellHeight;
-    private Integer leftPadding;
 
-    DSListViewDefaultAdapter(Context context, int textViewResourceId, ArrayList<String> stringItems, Integer cellHeight) {
+    private int cellHeight;
+    private int cellTextSize;
+    private DSDefaultPickerBox dsPickerBoxDefault;
+
+    DSDefaultAdapter(Context context, int textViewResourceId, ArrayList<String> stringItems, Integer cellHeight, Integer cellTextSize) {
         super(context, textViewResourceId, stringItems);
         this.items = stringItems;
         this.context = context;
         this.cellHeight = cellHeight;
+        this.cellTextSize = cellTextSize;
     }
 
-    DSListViewDefaultAdapter(Context context, int textViewResourceId, ArrayList<String> stringItems, Integer cellHeight, Integer leftPadding) {
-        super(context, textViewResourceId, stringItems);
-        this.items = stringItems;
-        this.context = context;
-        this.cellHeight = cellHeight;
-        this.leftPadding = leftPadding;
-    }
-
-    void setLeftPadding(Integer leftPadding) {
-        this.leftPadding = leftPadding;
+    // Bad solution, but it works.
+    void setDsPickerBoxDefault(DSDefaultPickerBox dsPickerBoxDefault) {
+        this.dsPickerBoxDefault = dsPickerBoxDefault;
     }
 
     void setCellHeight(Integer cellHeight) {
         this.cellHeight = cellHeight;
+    }
+
+    void setCellTextSize(Integer cellTextSize) {
+        this.cellTextSize = cellTextSize;
     }
 
     @Override
@@ -82,9 +82,17 @@ public class DSListViewDefaultAdapter extends ArrayAdapter<String> {
 
         if (null != holder) {
             holder.text.setText("" + items.get(position));
-            convertView.setMinimumHeight(cellHeight);
-            convertView.setPadding(leftPadding,0,0,0);
-//            convertView.findViewById(R.id.ds_default_cell_root).requestLayout();
+
+            if (cellHeight > 0)
+                convertView.setMinimumHeight(cellHeight);
+
+            if (cellTextSize > 0)
+                holder.text.setTextSize(cellTextSize);
+
+            if (null != this.dsPickerBoxDefault)
+                convertView.setPadding(dsPickerBoxDefault.getPaddingLeft(), dsPickerBoxDefault.getPaddingTop(),
+                        dsPickerBoxDefault.getPaddingRight(), dsPickerBoxDefault.getPaddingBottom());
+
         }
         return convertView;
     }

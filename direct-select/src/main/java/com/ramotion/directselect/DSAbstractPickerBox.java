@@ -7,13 +7,13 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.FrameLayout;
 
-public abstract class DSPickerBox<T> extends FrameLayout {
+public abstract class DSAbstractPickerBox<T> extends FrameLayout {
 
-    public DSPickerBox(@NonNull Context context) {
+    public DSAbstractPickerBox(@NonNull Context context) {
         super(context);
     }
 
-    public DSPickerBox(@NonNull Context context, @Nullable AttributeSet attrs) {
+    public DSAbstractPickerBox(@NonNull Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
     }
 

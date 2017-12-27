@@ -9,10 +9,10 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.ramotion.directselect.DSPickerBox;
+import com.ramotion.directselect.DSAbstractPickerBox;
 import com.ramotion.directselect.R;
 
-public class AdvancedExamplePickerBox extends DSPickerBox<AdvancedExampleDataPOJO> {
+public class AdvancedExamplePickerBox extends DSAbstractPickerBox<AdvancedExampleDataPOJO> {
 
     private TextView title;
     private ImageView icon;

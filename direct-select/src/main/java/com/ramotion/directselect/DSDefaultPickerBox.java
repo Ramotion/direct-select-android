@@ -9,17 +9,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-public class DSPickerBoxDefault extends DSPickerBox<String> {
+public class DSDefaultPickerBox extends DSAbstractPickerBox<String> {
 
     private TextView textView;
     private ViewGroup animatedPart;
 
-    public DSPickerBoxDefault(@NonNull Context context) {
+    public DSDefaultPickerBox(@NonNull Context context) {
         super(context);
         init(context, null);
     }
 
-    public DSPickerBoxDefault(@NonNull Context context, @Nullable AttributeSet attrs) {
+    public DSDefaultPickerBox(@NonNull Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         init(context, attrs);
     }
@@ -28,6 +28,11 @@ public class DSPickerBoxDefault extends DSPickerBox<String> {
         LayoutInflater mInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         assert mInflater != null;
         mInflater.inflate(R.layout.ds_default_picker_box, this, true);
+    }
+
+    void setCellTextSize(int cellTextSize) {
+        if (cellTextSize > 0)
+            this.textView.setTextSize(cellTextSize);
     }
 
     @Override
