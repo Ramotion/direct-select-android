@@ -5,6 +5,9 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.widget.ListView;
 
+/**
+ * Custom List View that reacts only to specific motion events
+ */
 class CustomListView extends ListView {
 
     public CustomListView(Context context) {

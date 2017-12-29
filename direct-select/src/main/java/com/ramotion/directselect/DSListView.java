@@ -29,8 +29,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 /**
- * Represents a popup view with list of available options to choose from and chooser view
- * at fixed position from top to indicate a selected option.
+ * Represents a popup view with list of available options to choose from and selector view
+ * at fixed position from top to indicate a selected option. Contains mail logic, animations, handlers, etc.
  */
 @SuppressWarnings({"unused", "UnusedReturnValue", "unchecked"})
 public class DSListView<T> extends RelativeLayout implements AbsListView.OnScrollListener {
@@ -41,7 +41,7 @@ public class DSListView<T> extends RelativeLayout implements AbsListView.OnScrol
 
     private Context context;
 
-    // Inner elements
+    // Inner views
     private ListView listView = null;
     private View selectorView = null;
 
@@ -64,11 +64,12 @@ public class DSListView<T> extends RelativeLayout implements AbsListView.OnScrol
     private int topMarginCompensation = 0;
     private boolean selectorAnimationCenterPivot = false;
 
-    // Attached view to display selected value and trigger show/hide animations of DSListView
+    // Attached picker box view to display selected value and trigger show/hide animations of DSListView
     private DSAbstractPickerBox<T> pickerBox;
     private int pickerBoxResId;
     private int cellTextSize;
 
+    // Selector view background settings
     private int selectorBgColor = Color.parseColor("#116b2b66");
     private int selectorBgDrawable;
 
@@ -137,24 +138,6 @@ public class DSListView<T> extends RelativeLayout implements AbsListView.OnScrol
                     dataFromAttributes, cellHeight, cellTextSize));
 
     }
-
-//    private void setCellHeight(@Dimension int cellHeight) {
-//        this.cellHeight = cellHeight;
-//        if (this.adapter instanceof DSListViewDefaultAdapter) {
-//            ((DSListViewDefaultAdapter) this.adapter).setCellHeight(cellHeight);
-//        }
-//    }
-
-//    private void setCellSettings(@Dimension DSDefaultCellSettings cellSettings) {
-//        this.defaultCellSettings = cellSettings;
-//        if (this.adapter instanceof DSListViewDefaultAdapter) {
-//            ((DSListViewDefaultAdapter) this.adapter).setDefaultCellSettings(defaultCellSettings);
-//        }
-//    }
-
-//    public void setSelectorTopMargin(@Dimension int selectorTopMargin) {
-//        this.selectorTopMargin = selectorTopMargin;
-//    }
 
     @Override
     public void onWindowFocusChanged(boolean hasWindowFocus) {
@@ -317,8 +300,8 @@ public class DSListView<T> extends RelativeLayout implements AbsListView.OnScrol
         }
     }
 
-    public void setPickerBox(DSAbstractPickerBox<T> selectboxView) {
-        this.pickerBox = selectboxView;
+    public void setPickerBox(DSAbstractPickerBox<T> pickerBox) {
+        this.pickerBox = pickerBox;
         if (this.pickerBox == null) return;
         this.pickerBox.setOnTouchListener(new View.OnTouchListener() {
             @SuppressLint("ClickableViewAccessibility")
@@ -411,7 +394,7 @@ public class DSListView<T> extends RelativeLayout implements AbsListView.OnScrol
         // Get position of of first visible child in dataFromAttributes array
         this.firstVisibleItem = this.listView.getFirstVisiblePosition();
 
-        // Switch to next item height of visible part of top view is smaller than half height of one row
+        // Switch to next item if height of visible part of top view is smaller than half height of one row
         if (-topChild.getTop() > topChild.getHeight() / 2) {
             this.firstVisibleItem++;
         }
@@ -455,7 +438,8 @@ public class DSListView<T> extends RelativeLayout implements AbsListView.OnScrol
                 cellContent.setPivotX(0);
                 cellContent.setPivotY(cellContent.getHeight() / 2);
             }
-            // Scale and "3d effect" for big scale factors on LOLLIPOP AND GREATER
+
+            // Scale and "3d effect" for big scale factors on API>=LOLLIPOP
             if (dy <= applyingRangeY) {
                 float k1 = 1 - (dy / applyingRangeY);
                 float scale = 1 + scaleFactorDelta * k1;

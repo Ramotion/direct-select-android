@@ -12,13 +12,16 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 /**
- * Default implementation of ArrayAdapter for DSPickerView
+ * Default implementation of ArrayAdapter for DSListView
+ * Used by default for strings with default cell layout through simple and clean xml configuration
  */
 public class DSDefaultAdapter extends ArrayAdapter<String> {
 
     private ArrayList<String> items;
     private Context context;
 
+    // Things to provide proper cell configuration comparing to configuration of picker box element
+    // Any custom implementation doesn't need this three vars
     private int cellHeight;
     private int cellTextSize;
     private DSDefaultPickerBox dsPickerBoxDefault;
@@ -31,7 +34,6 @@ public class DSDefaultAdapter extends ArrayAdapter<String> {
         this.cellTextSize = cellTextSize;
     }
 
-    // Bad solution, but it works.
     void setDsPickerBoxDefault(DSDefaultPickerBox dsPickerBoxDefault) {
         this.dsPickerBoxDefault = dsPickerBoxDefault;
     }
@@ -92,7 +94,6 @@ public class DSDefaultAdapter extends ArrayAdapter<String> {
             if (null != this.dsPickerBoxDefault)
                 convertView.setPadding(dsPickerBoxDefault.getPaddingLeft(), dsPickerBoxDefault.getPaddingTop(),
                         dsPickerBoxDefault.getPaddingRight(), dsPickerBoxDefault.getPaddingBottom());
-
         }
         return convertView;
     }

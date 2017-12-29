@@ -3,10 +3,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/ds_nba_background_picker_box"
-    android:paddingLeft="15dp"
-    android:paddingRight="15dp">
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp">
 
-    <include layout="@layout/advanced_example_custom_cell" />
+    <include
+        layout="@layout/advanced_example_custom_cell"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content" />
 
     <ImageView
         android:id="@+id/picker_box_arrows"

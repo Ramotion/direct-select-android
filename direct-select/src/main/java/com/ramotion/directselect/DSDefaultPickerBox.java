@@ -9,6 +9,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+/**
+ * Default implementation of Picker Box element for Strings to work "from the box"
+ * with default cell layout
+ */
 public class DSDefaultPickerBox extends DSAbstractPickerBox<String> {
 
     private TextView textView;
