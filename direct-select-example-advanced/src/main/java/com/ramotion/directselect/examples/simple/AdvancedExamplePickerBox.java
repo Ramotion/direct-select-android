@@ -14,9 +14,9 @@ import com.ramotion.directselect.R;
 
 public class AdvancedExamplePickerBox extends DSAbstractPickerBox<AdvancedExampleDataPOJO> {
 
-    private TextView title;
+    private TextView text;
     private ImageView icon;
-    private View animationPart;
+    private View cellRoot;
 
     public AdvancedExamplePickerBox(@NonNull Context context) {
         super(context);
@@ -37,19 +37,19 @@ public class AdvancedExamplePickerBox extends DSAbstractPickerBox<AdvancedExampl
     @Override
     protected void onFinishInflate() {
         super.onFinishInflate();
-        this.title = findViewById(R.id.custom_cell_text);
+        this.text = findViewById(R.id.custom_cell_text);
         this.icon = findViewById(R.id.custom_cell_image);
-        this.animationPart = findViewById(R.id.custom_cell_root);
+        this.cellRoot = findViewById(R.id.custom_cell_root);
     }
 
     @Override
     public void onSelect(AdvancedExampleDataPOJO selectedItem, int selectedIndex) {
-        this.title.setText(selectedItem.getTitle());
+        this.text.setText(selectedItem.getTitle());
         this.icon.setImageResource(selectedItem.getIcon());
     }
 
     @Override
-    public View getAnimatedPart() {
-        return this.animationPart;
+    public View getCellRoot() {
+        return this.cellRoot;
     }
 }

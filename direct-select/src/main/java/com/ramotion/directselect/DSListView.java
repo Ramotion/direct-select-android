@@ -41,7 +41,7 @@ public class DSListView<T> extends RelativeLayout implements AbsListView.OnScrol
 
     private Context context;
 
-    // Inner views
+    // Inner parts
     private ListView listView = null;
     private View selectorView = null;
 
@@ -53,7 +53,7 @@ public class DSListView<T> extends RelativeLayout implements AbsListView.OnScrol
     private boolean scrollInProgress;
     private boolean listViewIsShown;
 
-    // Picker settings and selector position
+    // Settings and selector position
     private int firstVisibleItem = 0;
     private int selectedItem = 0;
     private int cellsBeforeSelector = 0;
@@ -232,7 +232,6 @@ public class DSListView<T> extends RelativeLayout implements AbsListView.OnScrol
         hideAnimation.setAnimationListener(new AnimationListenerAdapter() {
             @Override
             public void onAnimationEnd(Animation animation) {
-                DSListView.this.pickerBox.bringToFront();
                 listViewIsShown = false;
                 animationInProgress = false;
             }
@@ -247,7 +246,7 @@ public class DSListView<T> extends RelativeLayout implements AbsListView.OnScrol
             scaleAnimation.setStartOffset(100 + subScrollDuration);
             scaleAnimation.setDuration(100);
             scaleAnimation.setFillAfter(true);
-            this.pickerBox.getAnimatedPart().startAnimation(scaleAnimation);
+            this.pickerBox.getCellRoot().startAnimation(scaleAnimation);
         }
     }
 
@@ -267,7 +266,7 @@ public class DSListView<T> extends RelativeLayout implements AbsListView.OnScrol
             scaleAnimation.setInterpolator(new AccelerateInterpolator());
             scaleAnimation.setDuration(100);
             scaleAnimation.setFillAfter(true);
-            this.pickerBox.getAnimatedPart().startAnimation(scaleAnimation);
+            this.pickerBox.getCellRoot().startAnimation(scaleAnimation);
         }
 
         // Show picker view animation
@@ -379,8 +378,12 @@ public class DSListView<T> extends RelativeLayout implements AbsListView.OnScrol
 
         // If scroll not stopped - clear selector animations(hide/show scale) and return;
         if (scrollState != SCROLL_STATE_IDLE) {
-            if (null != this.pickerBox)
-                DSListView.this.pickerBox.clearAnimation();
+//            if (null != this.pickerBox) {
+//                Animation animation = DSListView.this.pickerBox.getAnimation();
+//                if (animation != null)
+//                    animation.cancel();
+//
+//            }
             return;
         }
 

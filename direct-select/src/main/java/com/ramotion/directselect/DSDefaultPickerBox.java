@@ -16,7 +16,7 @@ import android.widget.TextView;
 public class DSDefaultPickerBox extends DSAbstractPickerBox<String> {
 
     private TextView textView;
-    private ViewGroup animatedPart;
+    private ViewGroup cellRoot;
 
     public DSDefaultPickerBox(@NonNull Context context) {
         super(context);
@@ -32,6 +32,8 @@ public class DSDefaultPickerBox extends DSAbstractPickerBox<String> {
         LayoutInflater mInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         assert mInflater != null;
         mInflater.inflate(R.layout.ds_default_picker_box, this, true);
+        this.setClipChildren(false);
+        this.setClipToPadding(false);
     }
 
     void setCellTextSize(int cellTextSize) {
@@ -43,8 +45,8 @@ public class DSDefaultPickerBox extends DSAbstractPickerBox<String> {
     protected void onFinishInflate() {
         super.onFinishInflate();
         this.textView = findViewById(R.id.ds_default_cell_text);
-        this.animatedPart = findViewById(R.id.ds_default_cell_root);
-        this.animatedPart.setMinimumHeight(this.getHeight());
+        this.cellRoot = findViewById(R.id.ds_default_cell_root);
+        this.cellRoot.setMinimumHeight(this.getHeight());
     }
 
     @Override
@@ -53,8 +55,8 @@ public class DSDefaultPickerBox extends DSAbstractPickerBox<String> {
     }
 
     @Override
-    public View getAnimatedPart() {
-        return this.animatedPart;
+    public View getCellRoot() {
+        return this.cellRoot;
     }
 
 }

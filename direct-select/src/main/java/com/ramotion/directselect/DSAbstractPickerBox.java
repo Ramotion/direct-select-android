@@ -10,7 +10,7 @@ import android.widget.FrameLayout;
 /**
  * Represents a Picker Box for Direct Select with specified data type
  *
- * @param <T> data type for your direct select and  picker box elements
+ * @param <T> data type for direct select and  picker box elements
  */
 public abstract class DSAbstractPickerBox<T> extends FrameLayout {
 
@@ -34,6 +34,6 @@ public abstract class DSAbstractPickerBox<T> extends FrameLayout {
      * This method must return a root view of your custom cell in most cases.
      * This view and all his children views will be used for scroll/show animations if they are enabled
      */
-    public abstract View getAnimatedPart();
+    public abstract View getCellRoot();
 
 }

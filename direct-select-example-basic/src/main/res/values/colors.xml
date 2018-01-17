@@ -4,8 +4,8 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
 
-    <color name="ds_picker_box_bg">#bcbcbc</color>
+    <color name="ds_picker_box_bg">#67f45959</color>
+    <color name="ds_list_selector_bg">#49067397</color>
     <color name="ds_list_bg">#ffffff</color>
-    <color name="ds_list_selector_bg">#73bcbcbc</color>
 
 </resources>

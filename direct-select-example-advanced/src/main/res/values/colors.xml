@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
-
+    <color name="colorPrimary">#ffffff</color>
+    <color name="color_window_bg">#eeeeee</color>
+    <color name="colorPrimaryDark">#797979</color>
+    <color name="colorAccent">#6d74ff</color>
 
     <color name="selector_border">#dedede</color>
     <color name="picker_box_border">#9f9f9f</color>
     <color name="picker_box_bg">#ffffff</color>
-    <color name="picker_list_bg">#ffffff</color>
+    <color name="ds_list_bg">#ffffff</color>
     <color name="picker_list_text">#232323</color>
 
 </resources>
