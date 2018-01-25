@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Default simplest cell layout for direct select with just one text view -->
+<?xml version="1.0" encoding="utf-8"?><!-- Default simplest cell layout for direct select with just one text view -->
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/ds_default_cell_root"
     android:layout_width="wrap_content"

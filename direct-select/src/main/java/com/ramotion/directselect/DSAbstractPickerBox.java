@@ -22,6 +22,10 @@ public abstract class DSAbstractPickerBox<T> extends FrameLayout {
         super(context, attrs);
     }
 
+    public DSAbstractPickerBox(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
+    }
+
     /**
      * This method will be invoked when directselect select's a item
      *

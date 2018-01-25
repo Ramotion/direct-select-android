@@ -56,26 +56,21 @@ public class DSDefaultAdapter extends ArrayAdapter<String> {
         return true;
     }
 
-    private class ViewHolder {
-        TextView text;
-    }
-
     @Override
     public int getCount() {
         return items.size();
     }
 
-    @SuppressLint("SetTextI18n")
     @NonNull
     @Override
     public View getView(int position, View convertView, @NonNull ViewGroup parent) {
-        ViewHolder holder;
+        DSDefaultAdapter.ViewHolder holder;
 
         if (null == convertView) {
             LayoutInflater vi = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             assert vi != null;
-            convertView = vi.inflate(R.layout.ds_default_list_item, null);
-            holder = new ViewHolder();
+            convertView = vi.inflate(R.layout.ds_default_list_item, parent, false);
+            holder = new DSDefaultAdapter.ViewHolder();
             holder.text = convertView.findViewById(R.id.ds_default_cell_text);
             convertView.setTag(holder);
         } else {
@@ -83,7 +78,7 @@ public class DSDefaultAdapter extends ArrayAdapter<String> {
         }
 
         if (null != holder) {
-            holder.text.setText("" + items.get(position));
+            holder.text.setText(items.get(position));
 
             if (cellHeight > 0)
                 convertView.setMinimumHeight(cellHeight);
@@ -97,4 +92,9 @@ public class DSDefaultAdapter extends ArrayAdapter<String> {
         }
         return convertView;
     }
+
+    private class ViewHolder {
+        TextView text;
+    }
+
 }

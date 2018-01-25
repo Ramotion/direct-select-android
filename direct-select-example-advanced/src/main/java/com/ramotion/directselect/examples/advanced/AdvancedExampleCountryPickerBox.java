@@ -1,4 +1,4 @@
-package com.ramotion.directselect.examples.simple;
+package com.ramotion.directselect.examples.advanced;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -10,28 +10,31 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.ramotion.directselect.DSAbstractPickerBox;
-import com.ramotion.directselect.R;
+import com.ramotion.directselect.examples.advanced.R;
 
-public class AdvancedExamplePickerBox extends DSAbstractPickerBox<AdvancedExampleDataPOJO> {
+public class AdvancedExampleCountryPickerBox extends DSAbstractPickerBox<AdvancedExampleCountryPOJO> {
 
     private TextView text;
     private ImageView icon;
     private View cellRoot;
 
-    public AdvancedExamplePickerBox(@NonNull Context context) {
-        super(context);
-        init(context, null);
+    public AdvancedExampleCountryPickerBox(@NonNull Context context) {
+        this(context, null);
     }
 
-    public AdvancedExamplePickerBox(@NonNull Context context, @Nullable AttributeSet attrs) {
-        super(context, attrs);
-        init(context, attrs);
+    public AdvancedExampleCountryPickerBox(@NonNull Context context, @Nullable AttributeSet attrs) {
+        this(context, attrs, 0);
     }
 
-    private void init(@NonNull Context context, AttributeSet attrs) {
+    public AdvancedExampleCountryPickerBox(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
+        init(context);
+    }
+
+    private void init(@NonNull Context context) {
         LayoutInflater mInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         assert mInflater != null;
-        mInflater.inflate(R.layout.advanced_example_picker_box, this, true);
+        mInflater.inflate(R.layout.advanced_example_country_picker_box, this, true);
     }
 
     @Override
@@ -43,7 +46,7 @@ public class AdvancedExamplePickerBox extends DSAbstractPickerBox<AdvancedExampl
     }
 
     @Override
-    public void onSelect(AdvancedExampleDataPOJO selectedItem, int selectedIndex) {
+    public void onSelect(AdvancedExampleCountryPOJO selectedItem, int selectedIndex) {
         this.text.setText(selectedItem.getTitle());
         this.icon.setImageResource(selectedItem.getIcon());
     }

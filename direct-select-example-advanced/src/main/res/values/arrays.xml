@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="sport_array">
-        <item>January</item>
-        <item>February</item>
-        <item>March</item>
-        <item>April</item>
-        <item>May</item>
-        <item>June</item>
-        <item>July</item>
-        <item>August</item>
-        <item>September</item>
-        <item>October</item>
-        <item>November</item>
-        <item>December</item>
+        <item>Soccer</item>
+        <item>American Football</item>
+        <item>Basketball</item>
+        <item>Cricket</item>
+        <item>Table Tennis</item>
+        <item>Tennis</item>
+        <item>Hockey</item>
+        <item>Volleyball</item>
+        <item>Baseball</item>
+        <item>Rugby</item>
+        <item>Golf</item>
     </string-array>
 </resources>

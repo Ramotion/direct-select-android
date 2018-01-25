@@ -1,4 +1,4 @@
-package com.ramotion.directselect.examples.simple;
+package com.ramotion.directselect.examples.advanced;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -10,15 +10,14 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.ramotion.directselect.R;
 
 import java.util.List;
 
-public class AdvancedExampleAdapter extends ArrayAdapter<AdvancedExampleDataPOJO> {
-    private List<AdvancedExampleDataPOJO> items;
+public class AdvancedExampleCountryAdapter extends ArrayAdapter<AdvancedExampleCountryPOJO> {
+    private List<AdvancedExampleCountryPOJO> items;
     private Context context;
 
-    public AdvancedExampleAdapter(@NonNull Context context, int resource, @NonNull List<AdvancedExampleDataPOJO> objects) {
+    public AdvancedExampleCountryAdapter(@NonNull Context context, int resource, @NonNull List<AdvancedExampleCountryPOJO> objects) {
         super(context, resource, objects);
         this.items = objects;
         this.context = context;
@@ -42,18 +41,18 @@ public class AdvancedExampleAdapter extends ArrayAdapter<AdvancedExampleDataPOJO
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-        AdvancedExampleAdapter.ViewHolder holder;
+        AdvancedExampleCountryAdapter.ViewHolder holder;
 
         if (null == convertView) {
             LayoutInflater vi = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             assert vi != null;
-            convertView = vi.inflate(R.layout.advanced_example_list_item, parent, false);
-            holder = new AdvancedExampleAdapter.ViewHolder();
+            convertView = vi.inflate(R.layout.advanced_example_country_list_item, parent, false);
+            holder = new AdvancedExampleCountryAdapter.ViewHolder();
             holder.text = convertView.findViewById(R.id.custom_cell_text);
             holder.icon = convertView.findViewById(R.id.custom_cell_image);
             convertView.setTag(holder);
         } else {
-            holder = (AdvancedExampleAdapter.ViewHolder) convertView.getTag();
+            holder = (AdvancedExampleCountryAdapter.ViewHolder) convertView.getTag();
         }
 
         if (null != holder) {

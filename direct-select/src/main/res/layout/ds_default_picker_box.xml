@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Standard Picker Box wraps our default cell with Relative Layout to leave possibility
-of adding custom elements -->
+<!-- Default Picker Box wraps our default cell with Relative Layout -->
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"

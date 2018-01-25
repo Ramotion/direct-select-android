@@ -74,12 +74,15 @@ public class DSListView<T> extends RelativeLayout implements AbsListView.OnScrol
     private int selectorBgDrawable;
 
     public DSListView(Context context) {
-        super(context);
-        initPicker(context);
+        this(context, null);
     }
 
     public DSListView(Context context, AttributeSet attrs) {
-        super(context, attrs);
+        this(context, attrs, 0);
+    }
+
+    public DSListView(Context context, AttributeSet attrs, int defStyle) {
+        super(context, attrs, defStyle);
         TypedArray styledAttrs = context.obtainStyledAttributes(attrs, R.styleable.DSListView);
         final int count = styledAttrs.getIndexCount();
         for (int i = 0; i < count; ++i) {
@@ -108,11 +111,6 @@ public class DSListView<T> extends RelativeLayout implements AbsListView.OnScrol
             }
         }
         styledAttrs.recycle();
-        initPicker(context);
-    }
-
-    public DSListView(Context context, AttributeSet attrs, int defStyle) {
-        super(context, attrs, defStyle);
         initPicker(context);
     }
 

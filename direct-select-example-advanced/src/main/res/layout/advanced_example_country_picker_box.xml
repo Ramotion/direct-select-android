@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/ds_nba_background_picker_box"
+    android:background="@drawable/ds_bg_countries_picker_box"
     android:paddingLeft="20dp"
     android:paddingRight="20dp">
 
     <include
-        layout="@layout/advanced_example_custom_cell"
+        layout="@layout/advanced_example_country_cell"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content" />
 

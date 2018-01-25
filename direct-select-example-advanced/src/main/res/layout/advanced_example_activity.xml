@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.ramotion.directselect.examples.simple.AdvancedExampleActivity">
+    tools:context=".AdvancedExampleActivity">
 
     <com.ramotion.directselect.DSListView
         android:id="@+id/ds_county_list"
@@ -15,9 +15,9 @@
         ds:picker_box_view="@id/ds_country_picker"
         ds:scale_animations="true"
         ds:scale_animations_factor="1.2"
-        ds:scale_animations_pivot_center="true"
+        ds:scale_animations_pivot_center="false"
         ds:selected_index="2"
-        ds:selector_background="@drawable/ds_nba_background_list_selector" />
+        ds:selector_background="@drawable/ds_bg_countries_list_selector" />
 
     <com.ramotion.directselect.DSListView
         android:id="@+id/ds_sport_list"
@@ -34,25 +34,56 @@
         ds:selector_background="#49067397" />
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <com.ramotion.directselect.examples.simple.AdvancedExamplePickerBox
-            android:id="@+id/ds_country_picker"
+        <TextView
+            style="@style/TitleText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="200dp" />
+            android:text="Example BIG Title" />
+
+        <android.support.v4.widget.Space
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <TextView
+            style="@style/CommonTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Here a fully customized picker with custom cell layout:" />
+
+
+        <com.ramotion.directselect.examples.advanced.AdvancedExampleCountryPickerBox
+            android:id="@+id/ds_country_picker"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <android.support.v4.widget.Space
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <TextView
+            style="@style/CommonTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Here a picker with default cell but custom background:" />
 
         <com.ramotion.directselect.DSDefaultPickerBox
             android:id="@+id/ds_sport_picker"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:background="@drawable/ds_sport_picker_box_background"
-            android:layout_marginTop="200dp"
-            android:paddingRight="30dp"
-            android:paddingLeft="30dp" />
+            android:background="@drawable/ds_bg_sport_picker_box"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp" />
 
+        <android.support.v4.widget.Space
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
 
     </LinearLayout>
 

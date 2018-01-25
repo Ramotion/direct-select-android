@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- List item just wraps our default cell layout with standard Frame Layout for inner purposes -->
+<?xml version="1.0" encoding="utf-8"?><!-- List item just wraps default cell layout with standard Frame Layout for inner purposes -->
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"

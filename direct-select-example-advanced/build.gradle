@@ -3,7 +3,7 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 26
     defaultConfig {
-        applicationId "com.ramotion.directselect.examples.simple"
+        applicationId "com.ramotion.directselect.examples.advenced"
         minSdkVersion 14
         targetSdkVersion 26
         versionCode 1
@@ -17,7 +17,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-    buildToolsVersion '26.0.2'
+    buildToolsVersion '26.0.3'
 }
 
 dependencies {
