@@ -3,7 +3,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/ds_bg_countries_picker_box"
+    android:background="@drawable/ds_bg_picker_box"
     android:paddingLeft="20dp"
     android:paddingRight="20dp">
 

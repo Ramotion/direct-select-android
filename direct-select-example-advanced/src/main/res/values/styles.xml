@@ -5,7 +5,7 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:windowBackground">@color/color_window_bg</item>
-        <item name="android:textSize">22sp</item>
+        <item name="android:textSize">16sp</item>
     </style>
 
     <style name="CommonTextView">
@@ -13,7 +13,7 @@
         <item name="android:layout_marginRight">15dp</item>
         <item name="android:layout_marginTop">15dp</item>
         <item name="android:layout_marginBottom">15dp</item>
-        <item name="android:textSize">16sp</item>
+        <item name="android:textSize">18sp</item>
         <item name="android:background">#ddd</item>
     </style>
 
@@ -23,10 +23,10 @@
         <item name="android:textStyle">bold</item>
     </style>
 
-    <style name="SelectorText">
-        <item name="android:layout_marginBottom">0dp</item>
-        <item name="android:textSize">25sp</item>
-        <item name="android:textStyle">bold</item>
+    <style name="FooterText" parent="CommonTextView">
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:textStyle">italic</item>
     </style>
 
 
