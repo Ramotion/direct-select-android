@@ -14,8 +14,8 @@
         android:visibility="invisible"
         ds:picker_box_view="@id/ds_country_picker"
         ds:scale_animations="true"
-        ds:scale_animations_factor="1.2"
-        ds:scale_animations_pivot_center="false"
+        ds:scale_animations_factor="1.15"
+        ds:scale_animations_pivot_center="true"
         ds:selected_index="2"
         ds:selector_background="@drawable/ds_bg_list_selector" />
 
@@ -28,10 +28,10 @@
         ds:data_array="@array/sport_array"
         ds:picker_box_view="@id/ds_sport_picker"
         ds:scale_animations="true"
-        ds:scale_animations_factor="1.3"
+        ds:scale_animations_factor="1.2"
         ds:scale_animations_pivot_center="false"
         ds:selected_index="2"
-        ds:selector_background="#49067397" />
+        ds:selector_background="@drawable/ds_bg_list_selector" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -42,7 +42,13 @@
             style="@style/TitleText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Example BIG Title" />
+            android:text="@string/title" />
+
+        <TextView
+            style="@style/CommonTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/subtitle" />
 
         <android.support.v4.widget.Space
             android:layout_width="match_parent"
@@ -53,7 +59,7 @@
             style="@style/CommonTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Here a fully customized picker with custom cell layout:" />
+            android:text="@string/customized_picker" />
 
         <com.ramotion.directselect.examples.advanced.AdvancedExampleCountryPickerBox
             android:id="@+id/ds_country_picker"
@@ -70,7 +76,7 @@
             style="@style/CommonTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Here a picker with default cell but custom background:" />
+            android:text="@string/picker_with_custom_bg" />
 
         <com.ramotion.directselect.DSDefaultPickerBox
             android:id="@+id/ds_sport_picker"
@@ -89,7 +95,7 @@
             style="@style/FooterText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="small footer text" />
+            android:text="@string/footer_text" />
 
 
     </LinearLayout>

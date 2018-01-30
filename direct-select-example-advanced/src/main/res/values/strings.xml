@@ -2,4 +2,9 @@
     <string name="app_name">DS Advanced Example</string>
     <string name="picker_box_arrows_icon">picker box arrows icon</string>
     <string name="cell_image">cell image</string>
+    <string name="title">Direct Select for Android</string>
+    <string name="subtitle">New iOS and Android control for you and your company. Please make sure to use it properly, if you have any questions, please create an issue on out GitHub account.</string>
+    <string name="customized_picker">Here a fully customized picker with custom background and cell layout:</string>
+    <string name="picker_with_custom_bg">Here a picker with default cell but custom background:</string>
+    <string name="footer_text">by Ramotion inc.</string>
 </resources>
