@@ -6,17 +6,10 @@ import java.util.List;
 public class AdvancedExampleCountryPOJO {
 
     private String title;
-    private String subTitle;
     private int icon;
 
     public AdvancedExampleCountryPOJO(String title, int icon) {
         this.title = title;
-        this.icon = icon;
-    }
-
-    public AdvancedExampleCountryPOJO(String title, String subTitle, int icon) {
-        this.title = title;
-        this.subTitle = subTitle;
         this.icon = icon;
     }
 
@@ -26,14 +19,6 @@ public class AdvancedExampleCountryPOJO {
 
     public void setTitle(String title) {
         this.title = title;
-    }
-
-    public String getSubTitle() {
-        return subTitle;
-    }
-
-    public void setSubTitle(String subTitle) {
-        this.subTitle = subTitle;
     }
 
     public int getIcon() {

@@ -10,7 +10,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.ramotion.directselect.DSAbstractPickerBox;
-import com.ramotion.directselect.examples.advanced.R;
 
 public class AdvancedExampleCountryPickerBox extends DSAbstractPickerBox<AdvancedExampleCountryPOJO> {
 

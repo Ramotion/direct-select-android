@@ -12,7 +12,7 @@
         android:layout_height="match_parent"
         android:background="@color/ds_list_bg"
         android:visibility="invisible"
-        ds:cell_font_size="8dp"
+        ds:cell_font_size="8sp"
         ds:data_array="@array/months"
         ds:picker_box_view="@id/picker_box"
         ds:scale_animations="true"
