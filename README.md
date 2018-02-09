@@ -1,4 +1,5 @@
 # Direct Select for Android
+![Animation](./direct_select_preview.gif)
 **Looking for developers for your project?**
 This project is maintained by Ramotion, Inc. We specialize in the designing and coding of custom UI for Mobile Apps and Websites.
 <a href="https://ramotion.com/?utm_source=gthb&utm_medium=special&utm_campaign=direct-select-android-contact-us/#Get_in_Touch"> 
