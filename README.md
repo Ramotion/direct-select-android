@@ -2,10 +2,15 @@
 ![Animation](./direct_select_preview.gif)
 # Direct Select for Android
 DirectSelect Dropdown is a selection widget with an ethereal, full-screen modal popup displaying the available choices when the widget is interact with.
+
 **Looking for developers for your project?**
 This project is maintained by Ramotion, Inc. We specialize in the designing and coding of custom UI for Mobile Apps and Websites.
-<a href="https://ramotion.com/?utm_source=gthb&utm_medium=special&utm_campaign=direct-select-android-contact-us/#Get_in_Touch"> 
+<br>
+<a href="https://ramotion.com/?utm_source=gthb&utm_medium=special&utm_campaign=direct-select-android-contact-us/#Get_in_Touch">
 <img src="https://github.com/ramotion/gliding-collection/raw/master/contact_our_team@2x.png" width="187" height="34"></a>
+
+The [Android mockup](https://store.ramotion.com?utm_source=gthb&utm_medium=special&utm_campaign=direct-select-android) available [here](https://store.ramotion.com?utm_source=gthb&utm_medium=special&utm_campaign=direct-select-android).
+
 ## Requirements
  - Android 4.0 IceCreamSandwich (API lvl 14) or greater
  - Your favorite IDE
@@ -28,7 +33,7 @@ libraryDependencies += "com.ramotion.directselect" % "direct-select" % "0.1.0"
 </dependency>
 ```
 ## Basic usage
-Basic usage assume simple configuration through xml layout without writing a program code, but that doesn't provide possibility to create cells with custom content layout for your lists and pickers.
+Basic usage assumes a simple configuration through xml layout without writing program code, but this doesn't provide the possibility to create cells with custom content layout for your lists and pickers.
 So, all you need is two elements in your layout:
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -61,17 +66,17 @@ So, all you need is two elements in your layout:
         android:layout_marginTop="260dp"
         android:background="@color/ds_picker_box_bg"
         android:padding="15dp" />
-    
+
 </FrameLayout>
 ```
-`DSListView` represents a list with options for picker, that shows up when user touches a`DSDefaultPickerBox` element and hides when user removes finger from screen.  `DSListView` has a couple of custom attributes, some of them are required, some not, here is a list:
+`DSListView` represents a list with options for the picker that shows up when the user touches a `DSDefaultPickerBox` element and hides when the user removes his finger from the screen.  `DSListView` has a couple of custom attributes, some of them are required, some not, here is a list:
  - **`data_array`** is a required reference to your selector options represented as array of strings in application resources.
- - **`picker_box_view`** is a required reference to implemented picker box element, you can use default implementation provided by library `DSDefaultPickerBox` or you can implement you own as shown in advanced usage example in this repository.
- - **`selector_background`**  is a drawable or color responsible for a highlighting of selector position when `DSListView` is shown on the screen. Using the same background as in your PickerBox element you can achieve pretty nice and clean effect.
- - **`scale_animations`** is a boolean that turns on/off scale animations of selected item. Try it.
- - **`scale_animations_factor`** is a float value that defines max scale ratio for scale animation
+ - **`picker_box_view`** is a required reference to implemented picker box element, you can use default implementation provided by the library `DSDefaultPickerBox` or you can implement your own as shown in the advanced usage example in this repository.
+ - **`selector_background`**  is a drawable or color responsible for a highlighting of selector position when `DSListView` is shown on the screen. Using the same background as in your PickerBox element you can achieve a pretty nice and clean effect.
+ - **`scale_animations`** is a boolean that turns on/off scale animations of the selected item. Try it.
+ - **`scale_animations_factor`** is a float value that defines max scale ratio for scaling animation
  - **`scale_animations_pivot_center`** is a boolean that moves pivot point of scale animations to center of your element instead of default left aligned position.
- - **`selected_index`** is a integer that represents initially selected option.
+ - **`selected_index`** is an integer that represents initially selected option.
 
 ## Advanced usage
 Here everything is more complicated. Let's start from creating layout files.
@@ -82,7 +87,7 @@ Here everything is more complicated. Let's start from creating layout files.
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_centerVertical="true">
-    
+
     <ImageView
         android:id="@+id/custom_cell_image"
         android:layout_width="30dp"
@@ -104,7 +109,7 @@ Here everything is more complicated. Let's start from creating layout files.
 
 </RelativeLayout>
 ```
-2. Now we need to create layout for our cell in list view, `advanced_example_country_list_item.xml`- it just wraps our newly created cell with `FrameLayout` for correct element animations and positioning inside list view.
+2. Now we need to create a layout for our cell in the list view, `advanced_example_country_list_item.xml`- it just wraps our newly created cell with `FrameLayout` for correct element animations and positioning inside the list view.
 ```xml
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
@@ -113,7 +118,7 @@ Here everything is more complicated. Let's start from creating layout files.
     android:clipToPadding="false"
     android:paddingLeft="20dp"
     android:paddingRight="20dp">
-    
+
     <include
         layout="@layout/advanced_example_country_cell"
         android:layout_width="wrap_content"
@@ -121,7 +126,7 @@ Here everything is more complicated. Let's start from creating layout files.
 
 </FrameLayout>
 ```
-3.  Third step - creation of our custom picker box layout, new file named `advanced_example_country_picker_box.xml` contains our custom cell layout, and inserts an additional custom elements that must appear only in picker box, like direction arrows in our example.
+3.  Third step - creation of our custom picker box layout, a new file named `advanced_example_country_picker_box.xml` that contains our custom cell layout, and inserts an additional custom elements that must appear only in picker box, like the direction arrows in our example.
 ```xml
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
@@ -151,17 +156,17 @@ Here everything is more complicated. Let's start from creating layout files.
 
 </RelativeLayout>
 ```  
-4. Finally, we need to write some code. First of all - we need to prepare a dataset, our cell contains two items - title and image, so we can't use default `data_array` attribute from basic example. Our structure can be represented by plain old java object with two appropriate fields.
+4. Finally, we need to write some code. First of all - we need to prepare a dataset, our cell contains two items - a title and image, so we can't use the default `data_array` attribute from the basic example. Our structure can be represented by plain old java object with two appropriate fields.
 ```java
 public class AdvancedExampleCountryPOJO {
     private String title;
     private int icon;
-    
+
     public AdvancedExampleCountryPOJO(String title, int icon) {
         this.title = title;
         this.icon = icon;
     }
-    
+
     public static List<AdvancedExampleCountryPOJO> getExampleDataset() {
         return Arrays.asList(
                 new AdvancedExampleCountryPOJO("Russian Federation", R.drawable.ds_countries_ru),
@@ -176,11 +181,11 @@ public class AdvancedExampleCountryPOJO {
                 new AdvancedExampleCountryPOJO("Algeria", R.drawable.ds_countries_dz)
         );
     }
-    
+
     // getters, setters, equal, hashcode, etc.
 }
 ```
-5. Now, to more complex things - we need somehow provide our dataset to `DSListView`, for this purpose in Android we have a `android.widget.ArrayAdapter` class, so we need a custom implementation to map data from our POJO to actual cell described earlier:
+5. Now, to more complex things - we need to somehow provide our dataset to `DSListView`, for this purpose in Android we have a `android.widget.ArrayAdapter` class, so we need a custom implementation to map data from our POJO to the actual cell described earlier:
 ```java
 public class AdvancedExampleCountryAdapter extends ArrayAdapter<AdvancedExampleCountryPOJO> {
     private List<AdvancedExampleCountryPOJO> items;
@@ -237,7 +242,7 @@ public class AdvancedExampleCountryAdapter extends ArrayAdapter<AdvancedExampleC
 }
 
 ```
-6. Almost done, but before we put it all together, there is one more thing. We almost forgot about our custom picker box to map selected cell from list view to actual displayed picker. So, we need to implement simple view that inflates our layout for picker box described earlier. To guarantee correct work must extend `DSAbstractPickerBox` class and implement some abstract methods:
+6. Almost done, but before we put it all together, there is one more thing. We almost forgot about our custom picker box to map the selected cell from the list view to the actual displayed picker. So, we need to implement simple view that inflates our layout for the picker box described earlier. To guarantee correctness, work must extend the `DSAbstractPickerBox` class and implement some abstract methods:
 ```java
 public class AdvancedExampleCountryPickerBox extends DSAbstractPickerBox<AdvancedExampleCountryPOJO> {
     private TextView text;
@@ -248,12 +253,12 @@ public class AdvancedExampleCountryPickerBox extends DSAbstractPickerBox<Advance
         this(context, null);
     }
 
-    public AdvancedExampleCountryPickerBox(@NonNull Context context, 
+    public AdvancedExampleCountryPickerBox(@NonNull Context context,
 										   @Nullable AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public AdvancedExampleCountryPickerBox(@NonNull Context context, 
+    public AdvancedExampleCountryPickerBox(@NonNull Context context,
 										   @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init(context);
@@ -285,7 +290,7 @@ public class AdvancedExampleCountryPickerBox extends DSAbstractPickerBox<Advance
     }
 }
 ```
-7. Finally - put all parts together in main activity layout and write some code in `MainActivity`:
+7. Finally - put all parts together in the main activity layout and write some code in `MainActivity`:
 ```java
 public class AdvancedExampleActivity extends AppCompatActivity {
 
@@ -294,14 +299,14 @@ public class AdvancedExampleActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.advanced_example_activity);
-        
+
 		// Prepare dataset
         List<AdvancedExampleCountryPOJO> exampleDataSet = AdvancedExampleCountryPOJO.getExampleDataset();
-		
+
 		// Create adapter with our dataset
         ArrayAdapter<AdvancedExampleCountryPOJO> adapter = new AdvancedExampleCountryAdapter(
                 this, R.layout.advanced_example_country_list_item, exampleDataSet);
-		
+
 		// Set adapter to our DSListView
         DSListView<AdvancedExampleCountryPOJO> pickerView = findViewById(R.id.ds_county_list);
         pickerView.setAdapter(adapter);
@@ -309,8 +314,8 @@ public class AdvancedExampleActivity extends AppCompatActivity {
     }
 }
 ```
-That's all. There is left some unmentioned features, like possibility to change size and position of list view and possibility to change default cell text appearance through `cell-font-size` settings or through apllying your custom style.
-Full examples with some comments and explanations you can find in this repository. Feel free to report bugs and ask questions.
+That's all. There are still some unmentioned features, like the possibility to change the size and position of the list view and the possibility to change default cell text appearance through `cell-font-size` settings or through applying your custom style.
+Full examples with some comments and explanations can be found in this repository. Feel free to report bugs and ask questions.
 
 
 ## Licence
@@ -323,10 +328,10 @@ Try our UI components in our mobil app. Contact us if interested.
 
 <a href="https://play.google.com/store/apps/details?id=com.ramotion.showroom" >
 <img src="https://raw.githubusercontent.com/Ramotion/react-native-circle-menu/master/google_play@2x.png" width="104" height="34"></a>
-<a href="https://ramotion.com/?utm_source=gthb&utm_medium=special&utm_campaign=direct-select-android-contact-us/#Get_in_Touch"> 
+<a href="https://ramotion.com/?utm_source=gthb&utm_medium=special&utm_campaign=direct-select-android-contact-us/#Get_in_Touch">
 <img src="https://github.com/ramotion/gliding-collection/raw/master/contact_our_team@2x.png" width="187" height="34"></a>
 
-Follow us for the latest updates 
+Follow us for the latest updates
 
 [![Twitter](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?text=https://github.com/ramotion/folding-cell-android)
 [![Twitter](https://img.shields.io/twitter/follow/ramotion.svg?style=social)](http://twitter.com/Ramotion)
