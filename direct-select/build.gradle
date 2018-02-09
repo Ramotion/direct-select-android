@@ -1,13 +1,19 @@
 apply plugin: 'com.android.library'
+apply plugin: 'signing'
+apply plugin: 'com.bmuschko.nexus'
+
+group = 'com.ramotion.directselect'
+version = '0.1.0'
 
 android {
     compileSdkVersion 26
+    buildToolsVersion '26.0.3'
 
     defaultConfig {
         minSdkVersion 14
         targetSdkVersion 26
         versionCode 1
-        versionName "0.1.0"
+        versionName version
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
@@ -23,4 +29,47 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'com.android.support:appcompat-v7:26.1.0'
+}
+
+modifyPom {
+    project {
+        name 'DirectSelect for Android'
+        description 'DirectSelect is a selection widget with an ethereal, full-screen modal popup displaying the available choices when the widget is interact with. http://ramotion.com'
+        url 'https://github.com/Ramotion/direct-select-android'
+        inceptionYear '2018'
+
+        scm {
+            url 'https://github.com/Ramotion/direct-select-android'
+            connection 'scm:git@github.com:Ramotion/direct-select-android.git'
+            developerConnection 'scm:git@github.com:Ramotion/direct-select-android.git'
+        }
+
+        licenses {
+            license {
+                name 'The MIT License (MIT)'
+                url 'https://opensource.org/licenses/mit-license.php'
+                distribution 'repo'
+            }
+        }
+
+        developers {
+            developer {
+                id 'oleg-vasiliev'
+                name 'Oleg Vasiliev'
+                email 'oleg-vasiliev@hotmail.com'
+            }
+        }
+    }
+}
+
+extraArchive {
+    sources = false
+    tests = false
+    javadoc = false
+}
+
+nexus {
+    sign = true
+    repositoryUrl = 'https://oss.sonatype.org/service/local/staging/deploy/maven2/'
+    snapshotRepositoryUrl = 'https://oss.sonatype.org/content/repositories/snapshots/'
 }

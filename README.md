@@ -1,5 +1,7 @@
-# Direct Select for Android
+![header](./header.png)
 ![Animation](./direct_select_preview.gif)
+# Direct Select for Android
+DirectSelect Dropdown is a selection widget with an ethereal, full-screen modal popup displaying the available choices when the widget is interact with.
 **Looking for developers for your project?**
 This project is maintained by Ramotion, Inc. We specialize in the designing and coding of custom UI for Mobile Apps and Websites.
 <a href="https://ramotion.com/?utm_source=gthb&utm_medium=special&utm_campaign=direct-select-android-contact-us/#Get_in_Touch"> 
