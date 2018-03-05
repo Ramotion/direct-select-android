@@ -1,7 +1,10 @@
 ![header](./header.png)
+<img src="https://github.com/Ramotion/direct-select-android/blob/master/direct_select_preview.gif" width="560" height="420" /></a>
 ![Animation](./direct_select_preview.gif)
 # Direct Select for Android
 DirectSelect Dropdown is a selection widget with an ethereal, full-screen modal popup displaying the available choices when the widget is interact with.
+
+Inspired by [Virgil Pana](https://dribbble.com/virgilpana) [shot](https://dribbble.com/shots/3876250-DirectSelect-Dropdown-ux)
 
 **Looking for developers for your project?**
 
@@ -334,5 +337,5 @@ Try our UI components in our mobil app. Contact us if interested.
 
 Follow us for the latest updates
 
-[![Twitter](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?text=https://github.com/ramotion/folding-cell-android)
-[![Twitter](https://img.shields.io/twitter/follow/ramotion.svg?style=social)](http://twitter.com/Ramotion)
+<a href="https://goo.gl/rPFpid" >
+<img src="https://i.imgur.com/ziSqeSo.png/" width="156" height="28"></a>
