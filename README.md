@@ -1,6 +1,5 @@
 ![header](./header.png)
-<img src="https://github.com/Ramotion/direct-select-android/blob/master/direct_select_preview.gif" width="560" height="420" /></a>
-![Animation](./direct_select_preview.gif)
+<img src="https://github.com/Ramotion/direct-select-android/blob/master/direct_select_preview.gif" width="560" height="420" />
 # Direct Select for Android
 DirectSelect Dropdown is a selection widget with an ethereal, full-screen modal popup displaying the available choices when the widget is interact with.
 
