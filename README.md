@@ -334,7 +334,7 @@ Try our UI components in our mobil app. Contact us if interested.
 <a href="https://dev.ramotion.com/?utm_source=gthb&utm_medium=special&utm_campaign=direct-select-android-contact-us">
 <img src="https://github.com/ramotion/gliding-collection/raw/master/contact_our_team@2x.png" width="187" height="34"></a>
 
-Follow us for the latest updates
+Follow us for the latest updates:
 
 <a href="https://goo.gl/rPFpid" >
 <img src="https://i.imgur.com/ziSqeSo.png/" width="156" height="28"></a>
