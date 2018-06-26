@@ -320,6 +320,9 @@ public class AdvancedExampleActivity extends AppCompatActivity {
 That's all. There are still some unmentioned features, like the possibility to change the size and position of the list view and the possibility to change default cell text appearance through `cell-font-size` settings or through applying your custom style.
 Full examples with some comments and explanations can be found in this repository. Feel free to report bugs and ask questions.
 
+<br>
+
+This library is a part of a <a href="https://github.com/Ramotion/android-ui-animation-components-and-libraries"><b>selection of our best UI open-source projects.</b></a>
 
 ## Licence
 
