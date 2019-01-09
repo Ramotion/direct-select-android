@@ -1,18 +1,26 @@
-![header](./header.png)
-<img src="https://github.com/Ramotion/direct-select-android/blob/master/direct_select_preview.gif" width="560" height="420" />
-# Direct Select for Android
-DirectSelect Dropdown is a selection widget with an ethereal, full-screen modal popup displaying the available choices when the widget is interact with.
+<img src="https://github.com/Ramotion/folding-cell/blob/master/header.png">
 
-Inspired by [Virgil Pana](https://dribbble.com/virgilpana) [shot](https://dribbble.com/shots/3876250-DirectSelect-Dropdown-ux)
+<a href="https://github.com/Ramotion/direct-select-android">
+<img align="left" src="https://github.com/Ramotion/direct-select-android/blob/master/direct_select_preview.gif" width="480" height="360" /></a>
 
-**Looking for developers for your project?**
+<p><h1 align="left">DIRECT SELECT [JAVA]</h1></p>
 
-This project is maintained by Ramotion, Inc. We specialize in the designing and coding of custom UI for Mobile Apps and Websites.
+<h4>Selection widget with an ethereal, full-screen modal popup displaying the available choices</h4>
 
+
+___
+
+
+<p><h6>We specialize in the designing and coding of custom UI for Mobile Apps and Websites.</h6>
 <a href="https://dev.ramotion.com?utm_source=gthb&utm_medium=repo&utm_campaign=direct-select-android">
 <img src="https://github.com/ramotion/gliding-collection/raw/master/contact_our_team@2x.png" width="187" height="34"></a>
+</p>
+<p><h6>Stay tuned for the latest updates:</h6>
+<a href="https://goo.gl/rPFpid" >
+<img src="https://i.imgur.com/ziSqeSo.png/" width="156" height="28"></a></p>
+<h6><a href="https://store.ramotion.com/product/samsung-clay-mockups?utm_source=gthb&utm_medium=special&utm_campaign=direct-select-android#demo">Get Free Samsung Mockup For your project →</a></h6>
 
-The [Android mockup](https://store.ramotion.com?utm_source=gthb&utm_medium=special&utm_campaign=direct-select-android) available [here](https://store.ramotion.com?utm_source=gthb&utm_medium=special&utm_campaign=direct-select-android).
+Inspired by [Virgil Pana](https://dribbble.com/virgilpana) [shot](https://dribbble.com/shots/3876250-DirectSelect-Dropdown-ux)
 
 ## Requirements
  - Android 4.0 IceCreamSandwich (API lvl 14) or greater
@@ -322,22 +330,20 @@ Full examples with some comments and explanations can be found in this repositor
 
 <br>
 
-This library is a part of a <a href="https://github.com/Ramotion/android-ui-animation-components-and-libraries"><b>selection of our best UI open-source projects.</b></a>
+## 📄 License
 
-## Licence
+Direct Select Android is released under the MIT license.
+See [LICENSE](./LICENSE) for details.
 
-Folding cell is released under the MIT license.
-See [LICENSE](./LICENSE.md) for details.
+This library is a part of a <a href="https://github.com/Ramotion/android-ui-animation-components-and-libraries"><b>selection of our best UI open-source projects</b></a>
 
-# Get the Showroom App for Android to give it a try
-Try our UI components in our mobil app. Contact us if interested.
+If you use the open-source library in your project, please make sure to credit and backlink to www.ramotion.com
+
+## 📱 Get the Showroom App for Android to give it a try
+Try this UI component and more like this in our Android app. Contact us if interested.
 
 <a href="https://play.google.com/store/apps/details?id=com.ramotion.showroom" >
 <img src="https://raw.githubusercontent.com/Ramotion/react-native-circle-menu/master/google_play@2x.png" width="104" height="34"></a>
+
 <a href="https://dev.ramotion.com?utm_source=gthb&utm_medium=repo&utm_campaign=direct-select-android">
 <img src="https://github.com/ramotion/gliding-collection/raw/master/contact_our_team@2x.png" width="187" height="34"></a>
-
-Follow us for the latest updates:
-
-<a href="https://goo.gl/rPFpid" >
-<img src="https://i.imgur.com/ziSqeSo.png/" width="156" height="28"></a>
