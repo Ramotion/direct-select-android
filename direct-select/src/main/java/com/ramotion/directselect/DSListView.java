@@ -214,7 +214,7 @@ public class DSListView<T> extends RelativeLayout implements AbsListView.OnScrol
     }
 
     private void hideListView() {
-        if (!readyToHide || animationInProgress || scrollInProgress || !listViewIsShown) return;
+        if (!readyToHide || animationInProgress || scrollInProgress || !listViewIsShown || adapter == null) return;
 
         readyToHide = false;
         animationInProgress = true;
@@ -335,6 +335,7 @@ public class DSListView<T> extends RelativeLayout implements AbsListView.OnScrol
             selectorView.setBackgroundColor(chooserBgColor);
     }
 
+    @SuppressLint("ResourceType")
     public void setSelectorBgDrawable(@DrawableRes int chooserBgDrawable) {
         this.selectorBgDrawable = chooserBgDrawable;
         if (chooserBgDrawable > 0 && null != selectorView)
