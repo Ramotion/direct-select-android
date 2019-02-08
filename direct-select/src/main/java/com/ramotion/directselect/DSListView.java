@@ -6,8 +6,6 @@ import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Handler;
-import android.support.annotation.ColorInt;
-import android.support.annotation.DrawableRes;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -27,6 +25,9 @@ import android.widget.Space;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+
+import androidx.annotation.ColorInt;
+import androidx.annotation.DrawableRes;
 
 /**
  * Represents a popup view with list of available options to choose from and selector view

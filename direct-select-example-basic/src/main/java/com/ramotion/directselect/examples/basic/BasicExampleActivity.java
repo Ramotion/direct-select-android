@@ -1,9 +1,8 @@
 package com.ramotion.directselect.examples.basic;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 
-import com.ramotion.directselect.DSListView;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class BasicExampleActivity extends AppCompatActivity {
 

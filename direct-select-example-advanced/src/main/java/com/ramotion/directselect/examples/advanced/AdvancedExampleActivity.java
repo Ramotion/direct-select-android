@@ -2,8 +2,6 @@ package com.ramotion.directselect.examples.advanced;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ArrayAdapter;
@@ -11,6 +9,9 @@ import android.widget.ArrayAdapter;
 import com.ramotion.directselect.DSListView;
 
 import java.util.List;
+
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class AdvancedExampleActivity extends AppCompatActivity {
 
