@@ -296,6 +296,7 @@ public class DSListView<T> extends RelativeLayout implements AbsListView.OnScrol
             if (this.pickerBox instanceof DSDefaultPickerBox)
                 ad.setDsPickerBoxDefault((DSDefaultPickerBox) this.pickerBox);
         }
+        listView.setAdapter(adapter);
     }
 
     public void setPickerBox(DSAbstractPickerBox<T> pickerBox) {
