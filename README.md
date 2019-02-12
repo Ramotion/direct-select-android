@@ -26,21 +26,21 @@ Inspired by [Virgil Pana](https://dribbble.com/virgilpana) [shot](https://dribbb
  - Android 4.0 IceCreamSandwich (API lvl 14) or greater
  - Your favorite IDE
 ## Installation
-Just download the package from [here](http://central.maven.org/maven2/com/ramotion/directselect/direct-select/0.1.0/direct-select-0.1.0.aar) and add it to your project classpath, or use it as dependency in your build tool:
+Just download the package from [here](http://central.maven.org/maven2/com/ramotion/directselect/direct-select/0.1.1/direct-select-0.1.1.aar) and add it to your project classpath, or use it as dependency in your build tool:
  - Gradle:
 ```groovy
-'com.ramotion.directselect:direct-select:0.1.0'
+'com.ramotion.directselect:direct-select:0.1.1'
 ```
  - SBT:
 ```scala
-libraryDependencies += "com.ramotion.directselect" % "direct-select" % "0.1.0"
+libraryDependencies += "com.ramotion.directselect" % "direct-select" % "0.1.1"
 ```
  - Maven:
 ```xml
 <dependency>
 	<groupId>com.ramotion.directselect</groupId>
 	<artifactId>direct-select</artifactId>
-	<version>0.1.0</version>
+	<version>0.1.1</version>
 </dependency>
 ```
 ## Basic usage
